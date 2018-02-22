@@ -35,6 +35,12 @@ public class PrimeFinder extends Thread {
         }        
         
     }
+    public void waitI() throws InterruptedException{
+        prs.wait();
+    }
+    public void resumeT(){
+        prs.notifyAll();
+    }
 	
 	
 }
