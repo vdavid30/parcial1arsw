@@ -23,13 +23,13 @@ public class PrimesFinderTool {
             PrimesResultSet prs=new PrimesResultSet("john");            
             boolean val = false;
             //Solucion del primer punto comentada para mostrar solucion del segundo 
-            /**
+            
             for(int i = 0; i <= 4;i++){
                 PrimeFinder pf = new PrimeFinder(new BigInteger(Integer.toString((i*(1000/4))+1)), new BigInteger(Integer.toString((i+1)*2500)), prs);            
                 pf.run();
                 val = true;
             }
-            **/
+            
             
             
             

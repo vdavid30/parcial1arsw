@@ -6,8 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 /**
  * @author Santiago Carrillo
@@ -16,19 +18,25 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 @RestController
 public class PrimesController
 {
-
+    @Autowired
     PrimeService primeService;
 
 
     @RequestMapping( value = "/primes", method = GET )
-    public List<FoundPrime> getPrimes()
-    {
+    public List<FoundPrime> getPrimes(){
+        System.out.println("Solicita todos los primos");
         return primeService.getFoundPrimes();
     }
-
-
-    //TODO implement additional methods provided by PrimeService
-
-
-
+    
+    @RequestMapping( value = "/primes", method = POST )
+    public void postPrimes(FoundPrime fp)    {
+        System.out.println("Ingresa  un numero especifico de primo");
+        primeService.addFoundPrime(fp);
+    }
+    
+    @RequestMapping( value = "/primes/{primenumber}", method = GET )
+    public FoundPrime getPrime(String primenumber){
+        System.out.println("Consulta un numero especifico de primo");
+        return primeService.getPrime(primenumber);
+    }        
 }
