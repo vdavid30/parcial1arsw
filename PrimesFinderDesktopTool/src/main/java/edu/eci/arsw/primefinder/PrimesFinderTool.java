@@ -18,13 +18,17 @@ public class PrimesFinderTool {
 		            
             int maxPrim=1000;
             
-            PrimesResultSet prs=new PrimesResultSet("john");
+            PrimesResultSet prs=new PrimesResultSet("john");            
             
-            PrimeFinder.findPrimes(new BigInteger("1"), new BigInteger("10000"), prs);
+            for(int i = 0; i <= 4;i++){
+                PrimeFinder pf = new PrimeFinder(new BigInteger(Integer.toString((i*(1000/4))+1)), new BigInteger(Integer.toString((i+1)*2500)), prs);            
+                pf.run();
+            }
             
             System.out.println("Prime numbers found:");
             
             System.out.println(prs.getPrimes());
+            
             
             
             /*while(task_not_finished){
